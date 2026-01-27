@@ -1,115 +1,99 @@
-# Alzheimer-Detection-Using-Deep-Learning
-Deep learning based MRI image classification system to detect Alzheimer’s Disease vs Normal using ResNet50V2 with transfer learning.
+# 🧠 Alzheimer’s Disease Detection from MRI using Deep Learning
 
+A deep learning–based medical imaging system to classify **Alzheimer’s Disease vs Normal brain MRI scans** using **ResNet50V2 transfer learning** with high recall and AUC.
 
-Alzheimer’s Disease Classification (AD vs Normal) using Deep Learning
-📌 Project Overview
+---
 
-This project focuses on building a deep learning–based medical imaging system to classify MRI brain scans as Alzheimer’s Disease (AD) or Normal. The objective is to support early detection by developing a reliable and high-recall classification model using transfer learning.
+## 📌 Project Overview
 
-🧠 Problem Statement
+This project builds an end-to-end deep learning pipeline to automatically detect Alzheimer’s Disease from MRI images.  
+The goal is to assist early diagnosis by developing a reliable, high-performance classification model.
 
-Early diagnosis of Alzheimer’s Disease is critical but challenging. Manual MRI analysis is time-consuming and error-prone. This project applies deep learning to automate MRI classification and assist clinical decision-making.
+---
 
-🛠 Tech Stack
+## 🧠 Problem Statement
 
-Python
+Early diagnosis of Alzheimer’s Disease is critical but challenging.  
+Manual MRI interpretation is time-consuming and depends heavily on expert availability.
 
-TensorFlow / Keras
+This project applies **deep learning and transfer learning** to automate MRI classification and support clinical decision-making.
 
-NumPy, Pandas
+---
 
-Matplotlib, Seaborn
+## 🗂 Dataset
 
-Scikit-learn
+**Source:** Kaggle – MRI Brain Scans (Neurological Disorders Dataset)
 
-OpenCV
+**Classes used:**
+- Alzheimer’s Disease  
+- Normal  
 
-Google Colab
+**Preprocessing steps:**
+- Invalid/corrupted image removal  
+- Channel consistency checks  
+- Image resizing to 224×224  
+- Data augmentation  
 
-📂 Dataset
+---
 
-Source: Kaggle – MRI Brain Scans (Alzheimer’s vs Normal)
+## ⚙️ Methodology
 
-Preprocessing:
+- Exploratory Data Analysis (EDA) on MRI datasets  
+- Data cleaning and preprocessing  
+- Transfer Learning using **ResNet50V2 (ImageNet weights)**  
+- Two-phase training strategy:
+  - Phase 1: Feature extraction (base layers frozen)  
+  - Phase 2: Fine-tuning deeper layers  
+- Class imbalance handling using class weights  
+- Evaluation using Accuracy, AUC, Recall, Confusion Matrix, ROC Curve  
 
-Invalid image removal
+---
 
-Channel consistency checks
+## 🏗 Model Architecture
 
-Image resizing to 224×224
+- ResNet50V2 (pretrained)  
+- Global Average Pooling  
+- Batch Normalization  
+- Dense + Dropout layers  
+- Sigmoid output for binary classification  
 
-Data augmentation
+---
 
-🔬 Methodology
+## 📊 Results
 
-Performed exploratory data analysis (EDA) on MRI datasets
+| Metric | Value |
+|-------|--------|
+Validation Accuracy | **94.58%**  
+Validation AUC | **0.9914**  
+Validation Recall | **0.9182**
 
-Applied data cleaning and preprocessing
+High recall was prioritized to minimize **false negatives**, which is critical in medical diagnosis.
 
-Used ResNet50V2 transfer learning
+---
 
-Implemented two-phase training strategy
+## 📈 Visual Results
 
-Phase 1: Frozen base layers
+- Training vs Validation Accuracy & Loss  
+- Confusion Matrix  
+- ROC Curve  
 
-Phase 2: Fine-tuning deeper layers
+(Available inside the `/results` folder)
 
-Handled class imbalance using class weights
+---
 
-Evaluated model using Accuracy, AUC, Recall, Confusion Matrix, ROC Curve
+## 🚀 Key Learnings
 
-📊 Results
+- Medical image preprocessing techniques  
+- Transfer learning and fine-tuning strategies  
+- Evaluation-driven ML model development  
+- Handling class imbalance in healthcare datasets  
+- Building end-to-end deep learning pipelines  
 
-Validation Accuracy: 94.58%
+---
 
-Validation AUC: 0.9914
+## ▶ How to Run
 
-Validation Recall: 0.9182
+Install dependencies:
 
-High recall was prioritized to reduce false negatives in medical diagnosis.
-
-📈 Visual Results
-
-Training vs validation accuracy & loss
-
-Confusion matrix
-
-ROC curve
-
-(see /results folder)
-
-🚀 Key Learnings
-
-Medical image preprocessing techniques
-
-Transfer learning and fine-tuning strategies
-
-Building evaluation-driven ML pipelines
-
-Handling class imbalance in healthcare datasets
-
-▶ How to Run
+```bash
 pip install -r requirements.txt
-
-
-Open the notebook:
-
-jupyter notebook notebooks/AD_vs_Normal_Training.ipynb
-
-👤 Author
-
-Vaibhav Pattanshetti
-B.Tech Computer Engineering
-Interests: Data Analytics, Machine Learning, Healthcare AI
-
-🔹 STEP 5: Upload to GitHub
-Method A (Easy – Website)
-
-Open your repo
-
-Click “Add file → Upload files”
-
-Drag your project folder contents
-
-Click Commit changes
